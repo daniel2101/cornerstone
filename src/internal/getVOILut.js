@@ -33,7 +33,7 @@ function generateLinearVOILUT (windowWidth, windowCenter) {
  * @param {Number} windowWidth Window Width
  * @param {Number} windowCenter Window Center
  * @param {LUT} [voiLUT] Volume of Interest Lookup Table Object
- * 
+ *
  * @returns {VOILUTFunction} VOI LUT mapping function
  * @memberof VOILUT
  */
@@ -52,7 +52,9 @@ function generateNonLinearVOILUT (windowWidth, windowCenter, voiLUT) {
       return maxValue;
     }
     const linearVOILUT = generateLinearVOILUT(windowWidth >> shift, windowCenter >> shift);
+
     return linearVOILUT(voiLUT.lut[modalityLutValue - voiLUT.firstValueMapped] >> shift);
+
   };
 }
 
